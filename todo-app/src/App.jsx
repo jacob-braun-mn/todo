@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react"
 import "./styles.css"
-import { NewTodoForm } from './NewTodoForm.jsx'
-import { TodoList } from './TodoList.jsx'
+import { NewTodoForm } from "./NewTodoForm.jsx"
+import { TodoList } from "./TodoList.jsx"
 
 export default function App() {
   const [todos, setTodos] = useState(() => {
@@ -18,15 +18,15 @@ export default function App() {
   function addTodo(title) {
     setTodos((currentTodos) => {
       return [
-        ...currentTodos, 
-        { id: crypto.randomUUID(), title, completed: false }
+        ...currentTodos,
+        { id: crypto.randomUUID(), title, completed: false },
       ]
     })
   }
 
   function toggleTodo(id, completed) {
-    setTodos(currentTodos => {
-      return currentTodos.map(todo => {
+    setTodos((currentTodos) => {
+      return currentTodos.map((todo) => {
         if (todo.id === id) {
           return { ...todo, completed }
         }
@@ -37,8 +37,8 @@ export default function App() {
   }
 
   function deleteTodo(id) {
-    setTodos(currentTodos => {
-      return currentTodos.filter(todo => todo.id !== id)
+    setTodos((currentTodos) => {
+      return currentTodos.filter((todo) => todo.id !== id)
     })
   }
 
